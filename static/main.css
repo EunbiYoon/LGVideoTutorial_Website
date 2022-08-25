@@ -133,11 +133,10 @@ header .hamburger{
     height: 4px;
     background-color: grey;
     border-radius: 10px;
-    cursor: pointer;
-    z-index:3;
+    z-index:4;
 }
 
-header .hamburger:before, header .hamburger:after{
+header .hamburger:before, .hamburger:after{
     content:"";
     position:absolute;
     height: 4px;
@@ -169,38 +168,37 @@ header .toggle-menu{
 }
 
 /*webstie 안보임*/
-header .hamburger,header.toggle-menu{
+header .hamburger,.toggle-menu{
     display: none;
 }
+
 
 /*check 하면 가운데 반응*/
-.navigation input:checked ~ .hamburger{
+header .navigation input:checked ~ .hamburger{
     background-color: transparent;
     display: none;
-
+    position: absolute;
+    left: 339px;
+    display: flex;
+    cursor: pointer;
 }
-
 /*check 하면 위에 반응*/
-.navigation input:checked ~ .hamburger:before{
+header .navigation input:checked ~ .hamburger:before{
     top:0;
     transform: rotate(-45deg);
     width: 30px;
-
 }
-
 /*check 하면 아래 반응*/
-.navigation input:checked ~.hamburger:after{
+header .navigation input:checked ~ .hamburger:after{
     top:0;
     transform: rotate(45deg);
     width: 30px;
-
 }
-
- .navigation input:checked ~.menu {
+/*check 하면 메뉴 반응*/
+header .navigation input:checked ~.menu {
     right: 0;
     box-shadow: -20px 0 40px rgb(106, 97, 97);
 }
-
 
 /*tablet*/
 @media only screen and (max-width: 960px){
@@ -257,7 +255,9 @@ header .hamburger,header.toggle-menu{
     header .signature .text3 {
         display: none;
     }
-    
+    header .navigation{
+        align-content: left;
+    }
     header .hamburger,.toggle-menu{
         display: block;
     }
@@ -272,12 +272,20 @@ header .hamburger,header.toggle-menu{
         height: 100%;
         padding-top: 70px;
         background-color:rgba(255, 255, 255, 0.954);
-        z-index: 3;
+        z-index: 2;
+    }
+
+    /*menu 영역 표시하기*/
+    header .menu li {
+        width: 100%;
+    }
+    header .menu li a{
+        padding:20px; /*글자 간격*/
+        border-bottom: 0.5px solid grey;
     }
     header .menu li a:hover{
         color:#c70851;
     }
+    header
 
-    
-    
 }
